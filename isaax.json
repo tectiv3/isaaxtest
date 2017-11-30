@@ -1,0 +1,13 @@
+{
+  "name": "python-app",
+  "version": "",
+  "description": "python - raspberry-pi",
+  "main": "app.py",
+  "author": "",
+  "license": "",
+  "language":"python",
+  "scripts": {
+     "start": "python -u app.py"
+    },
+   "dependency": null
+}
