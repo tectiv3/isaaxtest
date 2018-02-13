@@ -52,7 +52,7 @@ while True:
     if humidity is not None and temperature is not None:
         print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
     else:
-        print('Failed to get reading. Try again!')
+        print('Failed to get reading. Retrying...')
         time.sleep(1.0)
         continue
 
@@ -61,24 +61,16 @@ while True:
     try:
         response = requests.post(
             url,
-            json.dumps({'deviceId': 'C3D163F9-555C-4E7D-8732-AB4851D041C2',
-            "data": [
-              {
-                "dataTypeId": 1,
-                "value": round(temperature, 2)
-              },
-              {
-                "dataTypeId": 2,
-                "value": round(humidity, 2)
-              },
-              {
-                "dataTypeId": 3,
-                "value": cpuTemp
-              }
+            json.dumps({
+            'deviceId': 'C3D163F9-555C-4E7D-8732-AB4851D041C2',
+            'data': [
+              { "dataTypeId": 1, "value": round(temperature, 2) },
+              { "dataTypeId": 2, "value": round(humidity, 2) },
+              { "dataTypeId": 3, "value": cpuTemp }
             ], 'date': time.strftime("%Y-%m-%d %H:%M:%S")}),
             headers={'Content-Type': 'application/json'},
             auth=(usr, pwd))
-        pprint.pprint(response.json())
+#         pprint.pprint(response.json())
     except Exception as e:
-        print("Post error:", e.message)
+        print("Post error:", str(e))
     time.sleep(120.0)
