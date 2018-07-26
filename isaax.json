@@ -7,7 +7,7 @@
   "license": "",
   "language":"python",
   "scripts": {
-     "start": "python -u app.py"
+     "start": "cd /home/pi/scale && npm start"
     },
    "dependency": null
 }
