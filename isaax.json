@@ -1,13 +1,14 @@
 {
-  "name": "python-app",
+  "name": "js-app",
   "version": "",
-  "description": "python - raspberry-pi",
-  "main": "app.py",
+  "description": "npm",
+  "main": "npm",
   "author": "",
   "license": "",
   "language":"python",
+  "workDir": "/home/pi/scale",
   "scripts": {
-     "start": "cd /home/pi/scale && npm start"
+     "start": "npm start"
     },
    "dependency": null
 }
